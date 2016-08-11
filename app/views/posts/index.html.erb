@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<head>
+<title>Home Page</title>
+<link rel="stylesheet" type="text/css" href="application.scss">
+</head>
+<header>
+
+</header>
+<body>
+<center>  <h2>Danipedia</h2>
+</center>
+
+
+<h4>All Posts</h4>
+<%= link_to "New Post", new_post_path %>
+
+<center><table style="width:70%">
+  <tr>
+    <th>Title</th>
+    <th>Body</th>
+  </tr>
+
+  <%@posts.each do |post| %>
+    <tr>
+      <td><%=link_to post.title, post %></td>
+      <td><%= post.body%></td>
+    </tr>
+  <% end %>
+</table>
+</body>

@@ -1,0 +1,14 @@
+<h2>New Comment for <%= @post.title %></h2>
+<br>
+<%= form_for @comment do |f| %>
+<%= f.hidden_field :post_id, :value => @post.id %>
+<div>
+    <%= f.label :author %>
+    <%= f.text_field :author %>
+</div>
+<div>
+    <%= f.label :body %>
+    <%= f.text_area :body %>
+</div>
+<%= f.submit "Submit" %>
+<% end %>

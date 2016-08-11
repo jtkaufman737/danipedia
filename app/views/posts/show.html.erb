@@ -1,0 +1,30 @@
+<h2><%= @post.title %></h2>
+<br/><br/><br/>
+
+
+<h4>Body:</h4>
+<p> "<%= @post.body %>"</p>
+
+<%= link_to "Back to all posts", posts_path %><br>
+<%= link_to "Edit #{@post.title}", edit_post_path(@post) %>
+
+<br>
+<%= link_to "Delete", post_path(@post), method: :delete, data: { confirm: 'Are you sure?' }
+%>
+
+<br/><br/><hr><br/><br/>
+<h5>Comments</h5>
+
+<%= link_to "New Comment", new_comment_path(:post_id=> @post.id) %>
+<table style="width:50%">
+  <tr>
+    <th>Author</th>
+    <th>Body</th>
+  </tr>
+  <% @post.comments.each do |comment| %>
+    <tr>
+      <td><%= comment.author %></td>
+      <td><%= comment.body %></td>
+    </tr>
+  <% end %>
+</table>
